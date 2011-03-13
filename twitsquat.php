@@ -31,8 +31,6 @@
 			}
 			
 			checkNames($usernames, $digest, $email);
-			
-			//print_r($usernames);
 		}	
 	}
 	
@@ -45,8 +43,6 @@
 				$results[] = array($u, $result);
 			}
 		}
-		
-		//print_r($results);
 		
 		output($results, $digest, $email);
 	}	
@@ -89,12 +85,9 @@
 		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 		@mail($email, $subject, $head.$body.$foot, $headers);
-		
-		echo "\n\n\n";
 	}
 
 	function nameAvailable($username) {
-		//return 1;
 		@file_get_contents("http://api.twitter.com/1/users/show.json?screen_name=" . $username,0,null,null);
 		
 		if($http_response_header[0] == "HTTP/1.1 404 Not Found") {
