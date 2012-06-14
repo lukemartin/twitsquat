@@ -4,67 +4,26 @@
 
 ---
 
-## Parameters
+## Usage
 
-<pre>
-	<code>
-		twitsquat.php [digest] [email address] [usernames]
-	</code>
-</pre>
+	$ bash twitsquat.sh [email address] [username1 username2 username3 ...]
 
-- digest: Boolean, whether to email digest of results
-    - _eg 1: Send email with results of all available and unavailable usernames_
-    - _eg 0: Send email with results of available usernames only_
-- email address: Your email address which results will be sent to
-    - _eg me@example.com_
-- usernames: Space-separated list of usernames to check
-    - _eg 'username1 username2 username3' etc_
+eg
 
----
+	$ bash twitsquat.sh me@example.com geoff jenny user13190238d nancy_spungeon
 
-## Command-line usage
-
-<pre>
-	<code>
-		$ php twitsquat.php 0 me@example.com username1 username2 username3
-	</code>
-</pre>
-
----
+A summary of available usernames will be sent to the email address specified. Should work out of the box, but you may need to set up mail on your machine/server. I can't help you with that, sorry.
 
 ## Cronjob usage
 
-Add a new line in your crontab file by typing:
+Open your crontab
 
-<pre>
-	<code>
-		$ crontab -e
-	</code>
-</pre>
+	$ crontab -e
 
-Format your cron job like this:
+Check four times an hour
 
-<pre>
-	<code>
-		# m h  dom mon dow   command
-		  30 * * * * /usr/bin/php /path/to/twitsquat.php 0 me@example.com username1 username2 username3
-	</code>
-</pre>
+	0,15,30,45 * * * * /bin/bash /path/to/twitsquat.sh me@example.com username1 username2
 
-### Example crons
+Check every minute
 
-Check for these usernames every 15 minutes, and only send an email if one becomes available:
-
-<pre>
-	<code>
-		  0,15,30,45 * * * * /usr/bin/php /path/to/twitsquat.php 0 me@example.com username1 username2 username3
-	</code>
-</pre>
-
-Send an email digest every Monday at 6am to notify you of all available/unavailable usernames (_or just to check if Twitter have blocked your IP :p_)
-
-<pre>
-	<code>
-		  0 6 * * 1 /usr/bin/php /path/to/twitsquat.php 1 me@example.com username1 username2 username3
-	</code>
-</pre>
+	*/1 * * * * /bin/bash /path/to/twitsquat.sh me@example.com username1 username2
