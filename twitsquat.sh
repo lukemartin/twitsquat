@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [ "$#" -le "1" ]; then
-    echo "No arguments provided"
+    echo "Usage: bash twitsquat.sh [email address] [username1 username2 username3 ...]"
+    echo "eg. bash twitsquat.sh me@example.com username1 username2"
     exit 1
 fi
 
