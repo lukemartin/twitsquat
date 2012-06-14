@@ -26,4 +26,4 @@ Check four times an hour
 
 Check every minute
 
-	*/1 * * * * /bin/bash /path/to/twitsquat.sh sername1 username2 me@example.com
+	*/1 * * * * /bin/bash /path/to/twitsquat.sh username1 username2 me@example.com
