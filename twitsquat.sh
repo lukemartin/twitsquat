@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$#" -le "1" ]; then
-    echo "Usage: bash twitsquat.sh [email address] [username1 username2 username3 ...]"
-    echo "eg. bash twitsquat.sh me@example.com username1 username2"
+    echo "Usage: bash twitsquat.sh [username1 username2 username3 ...] [email address]"
+    echo "eg. bash twitsquat.sh username1 username2 me@example.com"
     exit 1
 fi
 
