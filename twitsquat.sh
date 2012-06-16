@@ -12,7 +12,10 @@ while [ $# -ne 1 ]; do
     echo "checking $1"
     temp=$(curl -s --head http://twitter.com/$1 | head -n 1 | grep "HTTP/1.[01] [23]..")
     if [ "$temp" == "" ]; then
-        available+=("$1")
+        temp=$(curl -s --head http://twitter.com/$1 | head -n 1 | grep "HTTP/1.[01] [23]..")
+        if [ "$temp" == "" ]; then
+            available+=("$1")
+        fi
     fi
     shift
 done
