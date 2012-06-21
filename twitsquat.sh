@@ -6,6 +6,11 @@ if [ "$#" -le "1" ]; then
     exit 1
 fi
 
+temp=$(curl -s --head http://twitter.com/ | head -n 1 | grep "HTTP/1.[01] [23]..")
+if [ "$temp" == "" ]; then
+    exit 1
+fi
+
 available=( )
 
 while [ $# -ne 1 ]; do
