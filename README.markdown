@@ -27,3 +27,7 @@ Check four times an hour
 Check every minute
 
 	*/1 * * * * /bin/bash /path/to/twitsquat.sh username1 username2 me@example.com
+
+## Important note on false-positives
+
+The script basically just sends a GET request to twitter.com/[username]. If it returns a 404, then we assume the username is available. False positives will occur when Twitter is borken and throwing 404s for all requests. This happens from time-to-time, but just take it as reassurance that twitsquat is working ^.^
