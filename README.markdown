@@ -6,11 +6,11 @@
 
 ## Usage
 
-	$ bash twitsquat.sh [username1 username2 username3 ...] [email address]
+	$ ./twitsquat.sh [username1 username2 username3 ...] [email address]
 
 eg
 
-	$ bash twitsquat.sh geoff jenny user13190238d nancy_spungeon me@example.com
+	$ ./twitsquat.sh geoff jenny user13190238d nancy_spungeon me@example.com
 
 A summary of available usernames will be sent to the email address specified. Should work out of the box, but you may need to set up mail on your machine/server. I can't help you with that, sorry.
 
